@@ -15,6 +15,6 @@ jobs:
         - uses: actions/setup-java@v3
           with:
             java-version: '17'
-        - run: gradle wrapper  # Створити wrapper на льоту
+        - run: gradle wrapper
         - run: chmod +x ./gradlew
         - run: ./gradlew build
