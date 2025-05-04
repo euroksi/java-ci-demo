@@ -10,17 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Give permission to gradlew
-        run: chmod +x ./gradlew
-
-      - name: Run tests
-        run: ./gradlew test
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-java@v3
+          with:
+            java-version: '17'
+        - run: gradle wrapper  # Створити wrapper на льоту
+        - run: chmod +x ./gradlew
+        - run: ./gradlew build
